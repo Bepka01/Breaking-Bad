@@ -1,0 +1,50 @@
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media (max-width: $breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin title {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+@mixin text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@mixin placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@mixin date {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  opacity: 0.4;
+}
+
+@mixin status {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+}
