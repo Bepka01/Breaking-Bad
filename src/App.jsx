@@ -1,13 +1,15 @@
 import Button from './components/ui/Button';
-import Icon from './components/Icons';
+import Icon from './components/ui/Icons';
+import Input from './components/ui/Input';
 
 function App() {
   return (
     <>
       <Button variant="default">
         <Icon name="menu" />
-        хуй{' '}
+        хуй
       </Button>
+      <Input placeholder="xuy" />
     </>
   );
 }
