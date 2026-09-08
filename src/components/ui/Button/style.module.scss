@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  align-items: center;
+
+  font: 400 16px / 24px $font-family;
+
+  border-radius: $radius;
+  cursor: pointer;
+}
+.default {
+  font:
+    400 16px / 24px Roboto,
+    sans-serif;
+  color: $black;
+  background: $yellow;
+  border: 1.4px solid $yellow;
+  border-radius: $radius;
+
+  display: flex;
+  align-items: center;
+
+  padding: 8px 16px;
+
+  cursor: pointer;
+}
