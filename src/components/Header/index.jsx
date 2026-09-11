@@ -10,7 +10,7 @@ const Header = () => {
       <Link to="/">
         <img src={logo} alt="Logo" />
       </Link>
-      <Link to="/characters">
+      <Link to="/cardpage">
         <Button>
           <Icon name="menu" />
           <span className={style.btn}>Каталог</span>
