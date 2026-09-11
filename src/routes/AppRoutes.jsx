@@ -7,6 +7,7 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route path={ROUTES.HOME} element={<Home />} />
+
       <Route path={ROUTES.CHARACTERS} element={<Characters />} />
     </Routes>
   );
