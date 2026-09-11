@@ -1,9 +1,7 @@
+import style from './style.module.scss';
+
 const Home = () => {
-  return (
-    <div>
-      <h1>Главая страница</h1>
-    </div>
-  );
+  return <main className={style.mainContainer}></main>;
 };
 
 export default Home;

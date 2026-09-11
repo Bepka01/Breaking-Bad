@@ -1,7 +1,7 @@
 const Characters = () => {
   return (
     <div>
-      <h2>Список персонажей</h2>
+      <h2>Персонаж</h2>
     </div>
   );
 };
