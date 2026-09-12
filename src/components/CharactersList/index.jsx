@@ -1,6 +1,7 @@
 import style from './style.module.scss';
 import { useEffect, useState } from 'react';
 import { getDataAboutCharacters } from '../../api/characters';
+import CharacterCard from '../CharacterCard';
 
 const CharactersList = () => {
   const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ const CharactersList = () => {
   return (
     <div className={style.list}>
       {data.map((item) => (
-        <div key={item.character.id}>{item.character.name}</div>
+        <CharacterCard key={item.character.id} character={item} />
       ))}
     </div>
   );
