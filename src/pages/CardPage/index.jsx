@@ -1,8 +1,7 @@
-import { getDataAboutCharacters } from '../../api/characters';
+import CharactersList from '../../components/CharactersList';
 
-console.log(getDataAboutCharacters());
 const CardPage = () => {
-  return <div></div>;
+  return <CharactersList />;
 };
 
 export default CardPage;
