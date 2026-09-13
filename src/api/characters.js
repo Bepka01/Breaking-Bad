@@ -1,8 +1,7 @@
-const API_URL =
-  'https://api.tvmaze.com/singlesearch/shows?q=Breaking%20Bad&embed=cast';
+const API_URL = '/api/breaking-bad/characters';
 
-export const getDataAboutCharacters = async () => {
-  const response = await fetch(API_URL);
+export const getDataAboutCharacters = async (limit = 6, offset = 0) => {
+  const response = await fetch(`${API_URL}?limit=${limit}&offset=${offset}`);
 
   if (!response.ok) {
     throw new Error('Failed to fetch characters');
@@ -10,5 +9,5 @@ export const getDataAboutCharacters = async () => {
 
   const data = await response.json();
 
-  return data._embedded.cast;
+  return data.data;
 };

@@ -11,6 +11,7 @@ const CharactersList = () => {
     getDataAboutCharacters()
       .then((data) => {
         setData(data);
+        console.log(data);
       })
       .catch((error) => {
         console.error(error);
@@ -28,7 +29,7 @@ const CharactersList = () => {
       </div>
       <div className={style.list}>
         {data.map((item) => (
-          <CharacterCard key={item.character.id} character={item} />
+          <CharacterCard key={item.id} character={item} />
         ))}
       </div>
     </div>

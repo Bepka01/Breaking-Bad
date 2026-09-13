@@ -6,17 +6,17 @@ const CharacterCard = ({ character }) => {
       <div className={style.imageWrapper}>
         <img
           className={style.image}
-          src={character.character.image.medium}
-          alt={character.character.name}
+          src={character.image_url}
+          alt={character.name}
         />
       </div>
 
       <div className={style.info}>
         <span className={style.status}>Alive</span>
 
-        <h3 className={style.name}>{character.character.name}</h3>
+        <h3 className={style.name}>{character.name}</h3>
 
-        <p className={style.birthday}>Unknown</p>
+        <p className={style.birthday}>{character.birth_date}</p>
       </div>
     </article>
   );
