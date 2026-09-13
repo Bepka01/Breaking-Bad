@@ -18,13 +18,13 @@ const icons = {
   arrowRight: ArrowRight,
 };
 
-const Icon = ({ name, size = 24, ...props }) => {
+const Icon = ({ name, size = 24, color = 'black', ...props }) => {
   const IconComponent = icons[name];
 
   if (!IconComponent) {
     return null;
   }
-  return <IconComponent size={size} {...props} />;
+  return <IconComponent color={color} size={size} {...props} />;
 };
 
 export default Icon;
