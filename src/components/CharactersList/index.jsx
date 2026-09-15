@@ -4,7 +4,6 @@ import { getDataAboutCharacters } from '../../api/characters';
 import CharacterCard from '../CharacterCard';
 import Pagination from './Pagination';
 import Input from '../ui/Input';
-import ListSetting from './ListSettings';
 
 import { TOTAL_CHARACTERS } from '../../constants/constants';
 
@@ -41,8 +40,13 @@ const CharactersList = () => {
         ))}
       </div>
       <div className={style.listFooter}>
-        <Pagination page={page} totalPages={totalPages} setPage={setPage} />
-        <ListSetting setPage={setPage} setLimit={setLimit} />
+        <Pagination
+          limit={limit}
+          page={page}
+          totalPages={totalPages}
+          setPage={setPage}
+          setLimit={setLimit}
+        />
       </div>
     </div>
   );
