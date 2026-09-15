@@ -1,5 +1,85 @@
+@use '../../../styles/variables.scss' as *;
+
 .pagination {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageButton {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+  border: none;
+  border-radius: $radius;
+
+  background: transparent;
+  color: $black;
+
+  font: 400 14px / 20px $font-family;
+
+  cursor: pointer;
+
+  &:hover {
+    color: $yellow;
+  }
+
+  &.active {
+    color: $yellow;
+    font-weight: 600;
+    background: $white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.cardsPerPage {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  span {
+    margin-right: 4px;
+
+    font: 400 14px / 20px $font-family;
+    color: $black;
+  }
+
+  button {
+    min-width: 32px;
+    height: 32px;
+
+    padding: 0;
+    border: none;
+    border-radius: $radius;
+
+    background: transparent;
+    color: $black;
+
+    font: 400 14px / 20px $font-family;
+
+    cursor: pointer;
+
+    &:hover {
+      color: $yellow;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &.active {
+      color: $yellow;
+      font-weight: 600;
+      background: $white;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+  }
 }

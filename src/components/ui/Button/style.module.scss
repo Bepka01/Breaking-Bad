@@ -39,3 +39,26 @@
     background-color: $yellow;
   }
 }
+.pagination {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: $radius;
+
+  background: transparent;
+  color: $black;
+
+  font: 400 14px / 20px $font-family;
+
+  &:hover {
+    background: transparent;
+    color: $yellow;
+  }
+
+  &:active {
+    background: transparent;
+  }
+}
