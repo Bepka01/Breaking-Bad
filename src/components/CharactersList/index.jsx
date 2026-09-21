@@ -68,7 +68,7 @@ const CharactersList = () => {
               console.log(variant);
             }}
           >
-            123
+            В ряд
           </span>
           <hr />
           <span
@@ -77,7 +77,7 @@ const CharactersList = () => {
               console.log(variant);
             }}
           >
-            123
+            Список
           </span>
         </div>
       </div>
