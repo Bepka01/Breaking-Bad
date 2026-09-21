@@ -1,0 +1,84 @@
+@use '../../styles/variables.scss' as *;
+
+.settingList {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.viewButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  opacity: 0.4;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &.active {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background-color: $light-gray;
+}
+
+.rowIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 7px;
+    border: 2px solid $black;
+
+    transition: border-color 0.25s ease;
+  }
+}
+
+.gridIcon {
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  gap: 4px;
+
+  span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: 2px solid $black;
+
+    transition: border-color 0.25s ease;
+  }
+}
+
+.viewButton.active {
+  .rowIcon span,
+  .gridIcon span {
+    border-color: $yellow;
+  }
+}
