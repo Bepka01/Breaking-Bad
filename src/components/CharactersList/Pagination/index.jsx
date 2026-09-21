@@ -1,13 +1,16 @@
+import { CARDS_PER_PAGE } from '../../../constants/constants';
 import Button from '../../ui/Button';
 import Icon from '../../ui/Icons';
 import style from './style.module.scss';
-import { CARDS_PER_PAGE } from '../../../constants/constants';
 
 const Pagination = ({ page, totalPages, setPage, setLimit, limit }) => {
   return (
     <div className={style.pagination}>
       <div className={style.pages}>
-        <Button onClick={() => setPage(page - 1)} disabled={page === 1}>
+        <Button
+          onClick={() => setPage((prevPage) => prevPage - 1)}
+          disabled={page === 1}
+        >
           <Icon name="arrowLeft" color="black" />
         </Button>
 
@@ -27,7 +30,7 @@ const Pagination = ({ page, totalPages, setPage, setLimit, limit }) => {
         )}
 
         <Button
-          onClick={() => setPage(page + 1)}
+          onClick={() => setPage((nextPage) => nextPage + 1)}
           disabled={page === totalPages}
         >
           <Icon name="arrowRight" color="black" />

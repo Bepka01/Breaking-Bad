@@ -1,7 +1,7 @@
 import CharactersList from '../../components/CharactersList';
 
-const CardPage = () => {
+const Characters = () => {
   return <CharactersList />;
 };
 
-export default CardPage;
+export default Characters;

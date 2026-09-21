@@ -1,20 +1,18 @@
 import {
-  Menu,
-  Search,
-  X,
-  ChevronDown,
-  ChevronRight,
-  ArrowLeft,
-  ArrowRight,
-} from 'lucide-react';
-
-import {
-  SiInstagram,
   SiFacebook,
-  SiGithub,
+  SiInstagram,
   SiTelegram,
   SiYoutube,
 } from '@icons-pack/react-simple-icons';
+import {
+  ArrowLeft,
+  ArrowRight,
+  ChevronDown,
+  ChevronRight,
+  Menu,
+  Search,
+  X,
+} from 'lucide-react';
 
 const icons = {
   menu: Menu,
