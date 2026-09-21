@@ -62,3 +62,39 @@
   font-size: 14px;
   line-height: 1;
 }
+
+.row {
+  height: 88px;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #cccccc;
+  align-items: center;
+}
+
+.row .imageWrapper {
+  width: 70px;
+  min-width: 70px;
+  height: 70px;
+}
+
+.row .info {
+  display: grid;
+  grid-template-columns: 280px 310px 1fr;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px 0 77px;
+}
+
+.row .status {
+  width: max-content;
+  height: 34px;
+}
+
+.row .name {
+  margin: 0;
+  font-size: 18px;
+}
+
+.row .birthday {
+  margin: 0;
+}

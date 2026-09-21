@@ -1,24 +1,20 @@
 import style from './style.module.scss';
 
-const CharacterCard = ({ character }) => {
+const CharacterCard = ({ name, img, birthday, variant }) => {
   return (
-    <article className={style.card}>
+    <div className={`${style.card} ${style[variant]}`}>
       <div className={style.imageWrapper}>
-        <img
-          className={style.image}
-          src={character.image_url}
-          alt={character.name}
-        />
+        <img className={style.image} src={img} alt={name} />
       </div>
 
       <div className={style.info}>
         <span className={style.status}>Alive</span>
 
-        <h3 className={style.name}>{character.name}</h3>
+        <h3 className={style.name}>{name}</h3>
 
-        <p className={style.birthday}>{character.birth_date}</p>
+        <p className={style.birthday}>{birthday}</p>
       </div>
-    </article>
+    </div>
   );
 };
 

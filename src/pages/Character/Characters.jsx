@@ -1,4 +1,4 @@
-const Characters = () => {
+const Character = () => {
   return (
     <div>
       <h2>Персонаж</h2>
@@ -6,4 +6,4 @@ const Characters = () => {
   );
 };
 
-export default Characters;
+export default Character;

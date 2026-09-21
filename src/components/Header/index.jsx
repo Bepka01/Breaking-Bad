@@ -1,8 +1,9 @@
-import style from './style.module.scss';
+import { Link } from 'react-router-dom';
+
+import logo from '../../assets/img/logo-bb.webp';
 import Button from '../ui/Button';
 import Icon from '../ui/Icons';
-import logo from '../../assets/img/logo-bb.webp';
-import { Link } from 'react-router-dom';
+import style from './style.module.scss';
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
       <Link to="/">
         <img src={logo} alt="Logo" />
       </Link>
-      <Link to="/cardpage">
+      <Link to="/characters">
         <Button>
           <Icon name="menu" />
           <span className={style.btn}>Каталог</span>

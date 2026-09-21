@@ -1,5 +1,5 @@
-import style from './style.module.scss';
 import Icon from '../ui/Icons';
+import style from './style.module.scss';
 
 const Footer = () => {
   return (
