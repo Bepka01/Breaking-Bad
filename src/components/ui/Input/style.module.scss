@@ -1,35 +1,51 @@
 @use '../../../styles/variables.scss' as *;
 
+.wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 64px;
+
+  background: $white;
+  border-radius: $radius;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 .input {
   width: 100%;
-  height: 40px;
+  height: 100%;
 
-  padding: 8px 12px;
+  padding: 0 120px 0 28px;
 
   font: 400 16px / 24px $font-family;
   color: $black;
 
-  background-color: $white;
-
-  border: 1px solid $gray;
-  border-radius: $radius;
-
+  background: transparent;
+  border: none;
   outline: none;
 
   &::placeholder {
     color: $gray;
   }
+}
 
-  &:hover {
-    border-color: $black;
-  }
+.search {
+  position: absolute;
+  top: 50%;
+  right: 28px;
 
-  &:focus {
-    border-color: $yellow;
-  }
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-  &:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
+  color: $black;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  svg {
+    color: $yellow;
   }
 }
