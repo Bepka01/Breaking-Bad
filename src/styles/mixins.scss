@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 @mixin tablet {
   @media (max-width: $breakpoint-tablet) {
     @content;
@@ -13,6 +15,14 @@
 @mixin small-mobile {
   @media (max-width: $breakpoint-small) {
     @content;
+  }
+}
+
+@mixin container-padding {
+  padding: 0 100.8px;
+
+  @include tablet {
+    padding: 0 26px;
   }
 }
 

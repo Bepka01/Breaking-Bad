@@ -7,8 +7,8 @@ import {
 import Loader from '../../components/ui/Loader';
 import CharacterCard from '../CharacterCard';
 import Input from '../ui/Input';
-import Pagination from './Pagination';
 import ViewToggle from '../ViewToggle';
+import Pagination from './Pagination';
 import style from './style.module.scss';
 
 const CharactersList = () => {

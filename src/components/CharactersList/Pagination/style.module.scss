@@ -83,3 +83,23 @@
     }
   }
 }
+@media (max-width: 1060px) {
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 600px) {
+  .pages {
+    gap: 0;
+    .pageButton {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .arrowLeft,
+  .arrowRight {
+    width: 15px;
+    height: 15 px;
+  }
+}

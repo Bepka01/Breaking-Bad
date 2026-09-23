@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import style from './style.module.scss';
 
@@ -12,7 +12,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={classNames(style.button, style[variant], className)}
+      className={cn(style.button, style[variant], className)}
       {...props}
     >
       {children}
