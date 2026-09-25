@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import {
+  getAllCharacters,
   getDataAboutCharacters,
   getTotalCharacters,
 } from '../../api/characters';
@@ -21,9 +22,30 @@ const CharactersList = () => {
   const [totalCharacters, setTotalCharacters] = useState(0);
 
   useEffect(() => {
-    const offset = (page - 1) * limit;
-
     setLoading(true);
+
+    if (searchValue.trim()) {
+      getAllCharacters()
+        .then((characters) => {
+          const filteredCharacters = characters.filter((character) =>
+            character.name
+              .toLowerCase()
+              .includes(searchValue.trim().toLowerCase())
+          );
+
+          setData(filteredCharacters);
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+
+      return;
+    }
+
+    const offset = (page - 1) * limit;
 
     getDataAboutCharacters(limit, offset)
       .then((data) => {
@@ -35,7 +57,7 @@ const CharactersList = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [page, limit]);
+  }, [page, limit, searchValue]);
 
   useEffect(() => {
     getTotalCharacters()
@@ -72,6 +94,7 @@ const CharactersList = () => {
         ) : (
           filterData.map((item) => (
             <CharacterCard
+              id={item.id}
               variant={variant}
               key={item.id}
               name={item.name}
@@ -81,15 +104,17 @@ const CharactersList = () => {
           ))
         )}
       </div>
-      <div className={style.listFooter}>
-        <Pagination
-          limit={limit}
-          page={page}
-          totalPages={totalPages}
-          setPage={setPage}
-          setLimit={setLimit}
-        />
-      </div>
+      {!searchValue.trim() && (
+        <div className={style.listFooter}>
+          <Pagination
+            limit={limit}
+            page={page}
+            totalPages={totalPages}
+            setPage={setPage}
+            setLimit={setLimit}
+          />
+        </div>
+      )}
     </div>
   );
 };

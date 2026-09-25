@@ -1,5 +1,6 @@
-import cn from 'classnames';
 import Icon from '../Icons';
+
+import cn from 'classnames';
 
 import style from './style.module.scss';
 

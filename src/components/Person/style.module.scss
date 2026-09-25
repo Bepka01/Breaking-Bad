@@ -1,0 +1,121 @@
+@use '../../styles/variables.scss' as *;
+
+.person {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+
+  width: 100%;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 600px;
+
+  overflow: hidden;
+  border-radius: $radius;
+
+  background-color: $light-gray;
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.info {
+  padding-top: 10px;
+}
+
+.status {
+  display: inline-block;
+
+  margin-bottom: 20px;
+  padding: 6px 12px;
+
+  color: $green;
+  background-color: rgba(81, 226, 69, 0.12);
+
+  border-radius: $radius;
+
+  font-family: $font-family;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+}
+
+.name {
+  margin: 0 0 35px;
+
+  color: $black;
+
+  font-family: $font-family;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  p {
+    display: flex;
+    gap: 6px;
+
+    margin: 0;
+
+    color: $black;
+
+    font-family: $font-family;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  span {
+    color: $gray;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .person {
+    gap: 40px;
+  }
+
+  .imageWrapper {
+    height: 500px;
+  }
+
+  .name {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .person {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .imageWrapper {
+    height: 450px;
+  }
+
+  .info {
+    padding-top: 0;
+  }
+
+  .name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

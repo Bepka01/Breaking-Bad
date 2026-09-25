@@ -1,8 +1,18 @@
 import style from './style.module.scss';
 
-const CharacterCard = ({ name, img, birthday, variant }) => {
+import { Link } from 'react-router-dom';
+
+const CharacterCard = ({ id, name, img, birthday, variant }) => {
   return (
-    <div className={`${style.card} ${style[variant]}`}>
+    <Link
+      to={`/characters/${id}`}
+      state={{
+        name,
+        img,
+        birthday,
+      }}
+      className={`${style.card} ${style[variant]}`}
+    >
       <div className={style.imageWrapper}>
         <img className={style.image} src={img} alt={name} />
       </div>
@@ -14,7 +24,7 @@ const CharacterCard = ({ name, img, birthday, variant }) => {
 
         <p className={style.birthday}>{birthday}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
