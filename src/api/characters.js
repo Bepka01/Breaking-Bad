@@ -25,3 +25,15 @@ export const getTotalCharacters = async () => {
 
   return data.data.length;
 };
+
+export const getAllCharacters = async () => {
+  const response = await fetch(`${BASE_API_URL}?limit=1000`);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch characters');
+  }
+
+  const data = await response.json();
+
+  return data.data;
+};
