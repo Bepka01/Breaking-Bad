@@ -2,7 +2,7 @@ import style from './style.module.scss';
 
 import { Link } from 'react-router-dom';
 
-const CharacterCard = ({ id, name, img, birthday, variant }) => {
+const CharacterCard = ({ id, name, img, birthday, variant, fullName }) => {
   return (
     <Link
       to={`/characters/${id}`}
@@ -10,6 +10,7 @@ const CharacterCard = ({ id, name, img, birthday, variant }) => {
         name,
         img,
         birthday,
+        fullName,
       }}
       className={`${style.card} ${style[variant]} ${style.characterLink}`}
     >
