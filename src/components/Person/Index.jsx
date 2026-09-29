@@ -1,6 +1,6 @@
 import style from './style.module.scss';
 
-const Person = ({ name, img, birthday, nickname, quote }) => {
+const Person = ({ name, img, birthday, fullName }) => {
   return (
     <div className={style.person}>
       <div className={style.imageWrapper}>
@@ -19,13 +19,8 @@ const Person = ({ name, img, birthday, nickname, quote }) => {
           </p>
 
           <p>
-            <span>Nickname:</span>
-            {nickname}
-          </p>
-
-          <p>
-            <span>Quote:</span>
-            {quote}
+            <span>full name:</span>
+            {fullName}
           </p>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { data } from 'react-router-dom';
 import { BASE_API_URL } from '../constants/constants';
 
 export const getDataAboutCharacters = async (limit = 6, offset = 0) => {
@@ -26,14 +27,18 @@ export const getTotalCharacters = async () => {
   return data.data.length;
 };
 
-export const getAllCharacters = async () => {
-  const response = await fetch(`${BASE_API_URL}?limit=1000`);
+export const searchPersonName = async (name) => {
+  const response = await fetch(
+    `${BASE_API_URL}?name=${encodeURIComponent(name)}`
+  );
 
   if (!response.ok) {
     throw new Error('Failed to fetch characters');
   }
 
   const data = await response.json();
+
+
 
   return data.data;
 };

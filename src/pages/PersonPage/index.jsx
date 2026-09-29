@@ -15,9 +15,9 @@ const PersonPage = () => {
       <Person
         name={state.name}
         img={state.img}
-        birthday={stateф.birthday}
-        nickname="Heisenberg"
-        quote="I am not in danger, Skyler. I am the danger."
+        birthday={state.birthday}
+
+        fullName={state.fullName}
       />
     </div>
   );

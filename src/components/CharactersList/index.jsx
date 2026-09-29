@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import {
-  getAllCharacters,
   getDataAboutCharacters,
   getTotalCharacters,
+  searchPersonName,
 } from '../../api/characters';
 import Loader from '../../components/ui/Loader';
 import CharacterCard from '../CharacterCard';
@@ -25,18 +25,13 @@ const CharactersList = () => {
     setLoading(true);
 
     if (searchValue.trim()) {
-      getAllCharacters()
-        .then((characters) => {
-          const filteredCharacters = characters.filter((character) =>
-            character.name
-              .toLowerCase()
-              .includes(searchValue.trim().toLowerCase())
-          );
-
-          setData(filteredCharacters);
+      searchPersonName(searchValue.trim())
+        .then((data) => {
+          setData(data);
         })
         .catch((error) => {
           console.error(error);
+          setData([]);
         })
         .finally(() => {
           setLoading(false);
@@ -100,6 +95,7 @@ const CharactersList = () => {
               name={item.name}
               img={item.image_url}
               birthday={item.birth_date}
+              fullName={item.full_name}
             />
           ))
         )}
