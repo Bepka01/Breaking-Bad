@@ -11,7 +11,7 @@ const CharacterCard = ({ id, name, img, birthday, variant }) => {
         img,
         birthday,
       }}
-      className={`${style.card} ${style[variant]}`}
+      className={`${style.card} ${style[variant]} ${style.characterLink}`}
     >
       <div className={style.imageWrapper}>
         <img className={style.image} src={img} alt={name} />
