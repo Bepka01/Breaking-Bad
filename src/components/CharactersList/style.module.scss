@@ -37,6 +37,9 @@
 
     width: 100%;
     min-width: 0;
+    position: relative;
+
+    display: grid;
 
     &.row {
       display: flex;
@@ -53,12 +56,31 @@
     }
 
     .loaderWrapper {
+      position: absolute;
+      inset: 0;
+
       display: flex;
-      grid-column: 1 / -1;
+      align-items: center;
       justify-content: center;
 
-      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+
+      z-index: 10;
     }
+  }
+
+  .message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 300px;
+
+    grid-column: 1 / -1;
+
+    font-size: 20px;
+    text-align: center;
   }
 
   .listFooter {

@@ -64,10 +64,6 @@ body {
   flex-shrink: 0;
 }
 
-.main {
-  min-height: calc(100vh - $header-height - $footer-height);
-}
-
 @include tablet {
   .container {
     padding: 0 32px;

@@ -1,6 +1,6 @@
-import style from './style.module.scss';
-
 import { Link } from 'react-router-dom';
+
+import style from './style.module.scss';
 
 const CharacterCard = ({ id, name, img, birthday, variant, fullName }) => {
   return (

@@ -12,6 +12,8 @@ import {
   Menu,
   Search,
   X,
+  StretchHorizontal,
+  LayoutGrid,
 } from 'lucide-react';
 
 const icons = {
@@ -28,6 +30,8 @@ const icons = {
 
   telegram: SiTelegram,
   youtube: SiYoutube,
+  horizontal: StretchHorizontal,
+  grid: LayoutGrid,
 };
 
 const Icon = ({ name, size = 24, color = 'black', ...props }) => {

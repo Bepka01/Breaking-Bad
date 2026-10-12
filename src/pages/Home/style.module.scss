@@ -1,21 +1,7 @@
 .mainContainer {
   width: 100%;
-  min-height: 640px;
+  min-height: calc(100vh - 160px);
   overflow: hidden;
 
   background: url('../../assets/img/home-bg.webp') center / cover no-repeat;
-}
-
-@media (max-width: 768px) {
-  .mainContainer {
-    min-height: 500px;
-    background-position: center;
-  }
-}
-
-@media (max-width: 550px) {
-  .mainContainer {
-    min-height: 400px;
-    background-position: center;
-  }
 }

@@ -1,6 +1,6 @@
 import { CARDS_PER_PAGE } from '../../../constants/constants';
-import Button from '../../ui/Button';
-import Icon from '../../ui/Icons';
+import Button from '../Button';
+import Icon from '../Icons';
 import style from './style.module.scss';
 
 const Pagination = ({ page, totalPages, setPage, setLimit, limit }) => {

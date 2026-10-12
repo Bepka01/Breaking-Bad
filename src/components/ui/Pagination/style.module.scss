@@ -68,7 +68,8 @@
     cursor: pointer;
 
     &:hover {
-      color: $yellow;
+      background: $yellow;
+      color: $black;
     }
 
     &:active {

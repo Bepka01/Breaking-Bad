@@ -1,10 +1,33 @@
-import { data } from 'react-router-dom';
 import { BASE_API_URL } from '../constants/constants';
 
-export const getDataAboutCharacters = async (limit = 6, offset = 0) => {
-  const response = await fetch(
-    `${BASE_API_URL}?limit=${limit}&offset=${offset}`
-  );
+export const getCharacters = async ({ limit, offset, name, id } = {}) => {
+  let url = BASE_API_URL;
+
+  if (id) {
+    url += `/${id}`;
+  } else {
+    const params = new URLSearchParams();
+
+    if (limit) {
+      params.set('limit', limit);
+    }
+
+    if (offset) {
+      params.set('offset', offset);
+    }
+
+    if (name) {
+      params.set('name', name);
+    }
+
+    const query = params.toString();
+
+    if (query) {
+      url += `?${query}`;
+    }
+  }
+
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error('Failed to fetch characters');
@@ -27,18 +50,14 @@ export const getTotalCharacters = async () => {
   return data.data.length;
 };
 
-export const searchPersonName = async (name) => {
-  const response = await fetch(
-    `${BASE_API_URL}?name=${encodeURIComponent(name)}`
-  );
+export const getQuote = async (id) => {
+  const response = await fetch(`/api/breaking-bad/quotes/${id}`);
 
   if (!response.ok) {
-    throw new Error('Failed to fetch characters');
+    throw new Error('Failed to fetch quote');
   }
 
-  const data = await response.json();
+  const quote = await response.json();
 
-
-
-  return data.data;
+  return quote.data;
 };

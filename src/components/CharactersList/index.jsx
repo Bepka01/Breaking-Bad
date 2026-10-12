@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useDebounce } from 'use-debounce';
 
-import {
-  getDataAboutCharacters,
-  getTotalCharacters,
-  searchPersonName,
-} from '../../api/characters';
+import { getTotalCharacters, getCharacters } from '../../api/characters';
 import Loader from '../../components/ui/Loader';
 import CharacterCard from '../CharacterCard';
 import Input from '../ui/Input';
+import Pagination from '../ui/Pagination';
 import ViewToggle from '../ViewToggle';
-import Pagination from './Pagination';
 import style from './style.module.scss';
 
 const CharactersList = () => {
@@ -20,39 +17,32 @@ const CharactersList = () => {
   const [searchValue, setSearchValue] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [totalCharacters, setTotalCharacters] = useState(0);
-
+  const [error, setError] = useState(false);
+  const [debouncedSearch] = useDebounce(searchValue, 500);
   useEffect(() => {
-    setLoading(true);
-
-    if (searchValue.trim()) {
-      searchPersonName(searchValue.trim())
-        .then((data) => {
-          setData(data);
-        })
-        .catch((error) => {
-          console.error(error);
-          setData([]);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-
-      return;
-    }
-
     const offset = (page - 1) * limit;
 
-    getDataAboutCharacters(limit, offset)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setLoading(true);
+
+    getCharacters({
+      limit,
+      offset,
+      name: debouncedSearch.trim(),
+    })
       .then((data) => {
         setData(data);
+        setError(false);
       })
       .catch((error) => {
         console.error(error);
+        setData([]);
+        setError(true);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, [page, limit, searchValue]);
+  }, [page, limit, debouncedSearch]);
 
   useEffect(() => {
     getTotalCharacters()
@@ -65,24 +55,41 @@ const CharactersList = () => {
   }, []);
 
   const totalPages = Math.ceil(totalCharacters / limit);
+
   return (
     <div className={style.listContainer}>
       <Input
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
+        value={searchValue}
+        onChange={(e) => {
+          setSearchValue(e.target.value);
+        }}
+        variant="search"
         placeholder="Поиск персонажа"
         className={style.listInput}
       />
+
       <div className={style.catalogHeader}>
         <h2>Catalog</h2>
+
         <ViewToggle variant={variant} setVariant={setVariant} />
       </div>
+
       <div className={`${style.list} ${style[variant]}`}>
-        {isLoading ? (
-          <div className={style.loaderWrapper}>
-            <Loader size="100px" />
+        {!isLoading && error && (
+          <div className={style.message}>
+            Что-то пошло не так. Попробуйте позже.
           </div>
-        ) : (
+        )}
+
+        {!isLoading && !error && data.length === 0 && (
+          <div className={style.message}>
+            {searchValue.trim()
+              ? 'По вашему запросу ничего не найдено.'
+              : 'Персонажи не найдены.'}
+          </div>
+        )}
+
+        {!error &&
           data.map((item) => (
             <CharacterCard
               id={item.id}
@@ -93,9 +100,15 @@ const CharactersList = () => {
               birthday={item.birth_date}
               fullName={item.full_name}
             />
-          ))
+          ))}
+
+        {isLoading && (
+          <div className={style.loaderWrapper}>
+            <Loader size="100px" />
+          </div>
         )}
       </div>
+
       {!searchValue.trim() && (
         <div className={style.listFooter}>
           <Pagination

@@ -1,4 +1,5 @@
 import style from './style.module.scss';
+import Icon from '../ui/Icons';
 
 const ViewToggle = ({ variant, setVariant }) => {
   return (
@@ -10,10 +11,7 @@ const ViewToggle = ({ variant, setVariant }) => {
         }`}
         onClick={() => setVariant('row')}
       >
-        <span className={style.rowIcon}>
-          <span />
-          <span />
-        </span>
+        <Icon name="horizontal" />
       </button>
 
       <span className={style.divider} />
@@ -25,12 +23,7 @@ const ViewToggle = ({ variant, setVariant }) => {
         }`}
         onClick={() => setVariant('grid')}
       >
-        <span className={style.gridIcon}>
-          <span />
-          <span />
-          <span />
-          <span />
-        </span>
+        <Icon name="grid" />
       </button>
     </div>
   );
