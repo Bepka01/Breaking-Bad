@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
-import { getTotalCharacters, getCharacters } from '../../api/characters';
+import { getCharacters } from '../../api/characters';
 import Loader from '../../components/ui/Loader';
 import CharacterCard from '../CharacterCard';
 import Input from '../ui/Input';
@@ -45,7 +45,7 @@ const CharactersList = () => {
   }, [page, limit, debouncedSearch]);
 
   useEffect(() => {
-    getTotalCharacters()
+    getCharacters({ limit: 1000 })
       .then((total) => {
         setTotalCharacters(total);
       })

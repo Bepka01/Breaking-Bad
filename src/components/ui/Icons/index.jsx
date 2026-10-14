@@ -9,11 +9,11 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronRight,
+  LayoutGrid,
   Menu,
   Search,
-  X,
   StretchHorizontal,
-  LayoutGrid,
+  X,
 } from 'lucide-react';
 
 const icons = {

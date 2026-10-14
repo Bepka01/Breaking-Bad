@@ -38,18 +38,6 @@ export const getCharacters = async ({ limit, offset, name, id } = {}) => {
   return data.data;
 };
 
-export const getTotalCharacters = async () => {
-  const response = await fetch(`${BASE_API_URL}?limit=1000`);
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch characters');
-  }
-
-  const data = await response.json();
-
-  return data.data.length;
-};
-
 export const getQuote = async (id) => {
   const response = await fetch(`/api/breaking-bad/quotes/${id}`);
 
